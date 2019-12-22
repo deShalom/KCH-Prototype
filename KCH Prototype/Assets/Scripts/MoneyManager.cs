@@ -10,7 +10,6 @@ public class MoneyManager : MonoBehaviour
     static private float g_totalgold;
     static private float g_goldPerMinute;
     static private float g_goldPMX;
-    //Change to private after debugging
     static private float gTimer = 60;
     static public float yTimer = 30;
     static private float cYear = 0;
@@ -44,7 +43,6 @@ public class MoneyManager : MonoBehaviour
 
     public void Start()
     {
-        //Needs removing or it'll reset on every scene change, PlayerPrefs?
         totalgold = PlayerPrefs.GetFloat("tGold", 0);
         goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
         goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
