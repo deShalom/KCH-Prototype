@@ -1,70 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
     //Variables
     [SerializeField]
-    private int g_totalgold, g_goldPerMinute, g_goldPMX;
-    private int gTimer;
-    public int dog = 100;
-    public int dog2 = 200;
-    public int target = 30;
+    static private float g_totalgold;
+    static private float g_goldPerMinute;
+    static private float g_goldPMX;
+    //Change to private after debugging
+    static private float gTimer = 60;
+    static public float yTimer = 30;
+    static private float cYear = 0;
+    static public int target = 30;
 
+    public Text goldC, yearC;
+
+    //Methods    
     void Awake()
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = target;
     }
-
-    //Methods
-    public int totalgold
+    public float totalgold
     {
         get { return g_totalgold; }
         set { g_totalgold = value; }
     }
 
-    public int goldperminute
+    public float goldperminute
     {
         get { return g_goldPerMinute; }
         set { g_goldPerMinute = value; }
     }
 
-    public int goldpmx
+    public float goldpmx
     {
         get { return g_goldPMX; }
         set { g_goldPMX = value; }
     }
 
-    private void Start()
+    public void Start()
     {
-        totalgold = 0;
-        goldperminute = 1;
-        goldpmx = 0;
+        //Needs removing or it'll reset on every scene change, PlayerPrefs?
+        totalgold = PlayerPrefs.GetFloat("tGold", 0);
+        goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
+        goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
     }
 
-    private void Update()
+    public void Update()
     {
         if (Application.targetFrameRate != target)
         {
             Application.targetFrameRate = target;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        for (float i = 0; i < 60; i++)
+        gTimer -= Time.deltaTime;
+        yTimer -= Time.deltaTime;
+
+        if (gTimer <= 0.0f)
         {
-            if (i == 5)
-            {
-                i = 0;
-                print("Reached 5 second, cleared.");
-                //totalgold = totalgold + goldperminute * g_goldPMX;
-                //print(totalgold);
-            }
+            totalgold = totalgold + goldperminute * g_goldPMX;
+            gTimer += 60f;
         }
+
+        if (yTimer <= 0.0f)
+        {
+            cYear = cYear += 100f;
+            yTimer += 60f;
+        }
+
+        goldC.text = "Gold: " + totalgold.ToString();
+        yearC.text = "Year: " + cYear.ToString();
+
+        PlayerPrefs.SetFloat("tGold", totalgold);
+        PlayerPrefs.SetFloat("pmGold", goldperminute);
+        PlayerPrefs.SetFloat("pmxGold", goldpmx);
     }
 }
-
 //All code written by Jay Underwood (deShalom).
