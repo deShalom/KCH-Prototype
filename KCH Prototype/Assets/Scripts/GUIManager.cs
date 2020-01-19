@@ -6,24 +6,25 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl;
+    public GameObject monPnl, conPnl;
     public Button mon1Btn, tvBtn;
     public bool monPnlActive;
 
-    //Composition
-    private JsCommonCode cc;
-
     //Methods
-    void Start()
+
+    //Menu Opening via button pressing
+    public void openMenu(GameObject menu)
     {
-
+        if (menu.activeInHierarchy)
+        {
+            menu.SetActive(false);
+        }
+        else if (menu.activeInHierarchy == false)
+        {
+            menu.SetActive(true);
+        }
     }
-
-    void Update()
-    {
-
-    }
-
+//Integrate to new format (Please)
     public void OpenmonPNL()
     {
         if (monPnlActive == false)
@@ -36,6 +37,12 @@ public class GUIManager : MonoBehaviour
             monPnl.SetActive(false);
             monPnlActive = false;
         }
+    }
+
+    //Open Construction Panel
+    public void OpenconPNL() 
+    {
+        openMenu(conPnl);
     }
 
 }

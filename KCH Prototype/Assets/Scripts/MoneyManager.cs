@@ -10,12 +10,12 @@ public class MoneyManager : MonoBehaviour
     static private float g_totalgold;
     static private float g_goldPerMinute;
     static private float g_goldPMX;
-    static private float gTimer = 60;
-    static public float yTimer = 30;
-    static private float cYear = 0;
+    static private float gTimer = 10f;
+    static public float yTimer = 2.5f;
+    static private float cYear = 1200;
     static public int target = 30;
 
-    public Text goldC, yearC;
+    public Text goldC, yearC, goldPM, goldPMX;
 
     //Methods    
     void Awake()
@@ -61,17 +61,19 @@ public class MoneyManager : MonoBehaviour
         if (gTimer <= 0.0f)
         {
             totalgold = totalgold + goldperminute * g_goldPMX;
-            gTimer += 60f;
+            gTimer += 10f;
         }
 
         if (yTimer <= 0.0f)
         {
-            cYear = cYear += 100f;
-            yTimer += 60f;
+            cYear = cYear += 1f;
+            yTimer += 2.5f;
         }
 
         goldC.text = "Gold: " + totalgold.ToString();
         yearC.text = "Year: " + cYear.ToString();
+        goldPM.text = "GPM:" + goldperminute.ToString();
+        goldPMX.text = "GPM*:" + goldpmx.ToString();
 
         PlayerPrefs.SetFloat("tGold", totalgold);
         PlayerPrefs.SetFloat("pmGold", goldperminute);
