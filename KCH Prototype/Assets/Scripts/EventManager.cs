@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+//Variables
 
+
+//Methods
     void Update()
     {
+        //Works
         if (MoneyManager.cYear == 1205) 
         {
-            print("Working");
+            print("Testing");
         }
     }
 }
