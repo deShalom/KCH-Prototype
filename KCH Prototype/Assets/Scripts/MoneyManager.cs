@@ -12,7 +12,7 @@ public class MoneyManager : MonoBehaviour
     static private float g_goldPMX;
     static private float gTimer = 10f;
     static public float yTimer = 5f;
-    static public float cYear = 1200;
+    static public float cYear = 1065;
     static public int target = 30;
 
     public Text goldC, yearC, goldPM, goldPMX;

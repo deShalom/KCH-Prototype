@@ -4,17 +4,45 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-//Variables
+    //Variables
+    int switchVar = 0;
+    int switchTimer = 0;
 
-
-//Methods
-    void Update()
+    //Methods
+    private void Update()
     {
-        //Works
-        if (MoneyManager.cYear == 1205) 
+        yearChecker();
+    }
+
+    void yearChecker()
+    {
+        if (MoneyManager.cYear == 1066 && switchTimer == 0)
         {
-            print("Testing");
+            switchVar = 1;
+            eventHolder();
+            switchTimer = 1;
         }
     }
+
+    void eventHolder() 
+    {
+        //Switch
+        switch (switchVar)
+        {
+            case 1:
+                penedenHeathEvent();
+                break;
+            case 2:
+                print("Working two");
+                break;
+        }
+
+    }
+
+    void penedenHeathEvent() 
+    {
+        print("Working");
+    }
+
 }
 //All code written by Jay Underwood (deShalom)
