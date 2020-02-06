@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl, conPnl;
-    public Button mon1Btn, tvBtn;
+    public GameObject monPnl, conPnl, wcPnl;
+    public Button mon1Btn, tvBtn, wcBtn;
     public bool monPnlActive;
 
     //Methods
@@ -24,7 +24,8 @@ public class GUIManager : MonoBehaviour
             menu.SetActive(true);
         }
     }
-//Integrate to new format (Please)
+
+    //Integrate to new format (Please)
     public void OpenmonPNL()
     {
         if (monPnlActive == false)
@@ -40,9 +41,29 @@ public class GUIManager : MonoBehaviour
     }
 
     //Open Construction Panel
-    public void OpenconPNL() 
+    public void OpenconPNL()
     {
         openMenu(conPnl);
+    }
+
+    public void openWhiteCopse()
+    {
+        openMenu(wcPnl);
+    }
+
+    public void wcButton()
+    {
+        if (MoneyManager.totalgold >= 500) 
+        {
+            applyPurchase(500, 1);
+            Destroy(wcBtn);
+        }
+    }
+
+    void applyPurchase(float cost, float effect) 
+    {
+        MoneyManager.totalgold -= cost;
+        MoneyManager.goldperminute += effect;
     }
 
 }

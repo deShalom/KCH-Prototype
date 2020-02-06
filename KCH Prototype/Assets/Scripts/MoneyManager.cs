@@ -23,19 +23,19 @@ public class MoneyManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = target;
     }
-    public float totalgold
+    static public float totalgold
     {
         get { return g_totalgold; }
         set { g_totalgold = value; }
     }
 
-    public float goldperminute
+    static public float goldperminute
     {
         get { return g_goldPerMinute; }
         set { g_goldPerMinute = value; }
     }
 
-    public float goldpmx
+     static public float goldpmx
     {
         get { return g_goldPMX; }
         set { g_goldPMX = value; }
@@ -43,9 +43,11 @@ public class MoneyManager : MonoBehaviour
 
     public void Start()
     {
-        totalgold = PlayerPrefs.GetFloat("tGold", 0);
-        goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
-        goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
+        //Removed for testing
+         totalgold = PlayerPrefs.GetFloat("tGold", 0);
+         goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
+         goldpmx = PlayerPrefs.GetFloat("pmxGold", 1); 
+
     }
 
     public void Update()
@@ -60,8 +62,9 @@ public class MoneyManager : MonoBehaviour
 
         if (gTimer <= 0.0f)
         {
-            totalgold = totalgold + goldperminute * g_goldPMX;
+            totalgold += goldperminute;
             gTimer += 10f;
+            print("Fired");
         }
 
         if (yTimer <= 0.0f)
@@ -79,5 +82,6 @@ public class MoneyManager : MonoBehaviour
         PlayerPrefs.SetFloat("pmGold", goldperminute);
         PlayerPrefs.SetFloat("pmxGold", goldpmx);
     }
+
 }
 //All code written by Jay Underwood (deShalom).
