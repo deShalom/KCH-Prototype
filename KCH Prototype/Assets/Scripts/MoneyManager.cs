@@ -71,7 +71,7 @@ public class MoneyManager : MonoBehaviour
         }
 
         goldC.text = "Gold: " + totalgold.ToString();
-        yearC.text = "Year: " + cYear.ToString();
+        yearC.text = cYear.ToString();
         goldPM.text = "GPM:" + goldperminute.ToString();
         goldPMX.text = "GPM*:" + goldpmx.ToString();
 
