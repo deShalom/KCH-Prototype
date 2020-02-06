@@ -16,6 +16,7 @@ public class MoneyManager : MonoBehaviour
     static public int target = 30;
 
     public Text goldC, yearC, goldPM, goldPMX;
+    bool coRunning;
 
     //Methods    
     void Awake()
@@ -43,10 +44,19 @@ public class MoneyManager : MonoBehaviour
 
     public void Start()
     {
-        //Removed for testing
-         totalgold = PlayerPrefs.GetFloat("tGold", 0);
-         goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
-         goldpmx = PlayerPrefs.GetFloat("pmxGold", 1); 
+        //Removed for testing (Apply these only when player has swapped between scenes)
+        //totalgold = PlayerPrefs.GetFloat("tGold", 0);
+        //goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
+        //goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
+
+        totalgold = 500;
+        goldperminute = 10;
+        goldpmx = 1;
+
+        //Coroutines
+        coRunning = true;
+        StartCoroutine(yearTicker());
+        StartCoroutine(goldTicker());
 
     }
 
@@ -57,21 +67,21 @@ public class MoneyManager : MonoBehaviour
             Application.targetFrameRate = target;
         }
 
-        gTimer -= Time.deltaTime;
-        yTimer -= Time.deltaTime;
+        //gTimer -= Time.deltaTime;
+        //yTimer -= Time.deltaTime;
 
-        if (gTimer <= 0.0f)
-        {
-            totalgold += goldperminute;
-            gTimer += 10f;
-            print("Fired");
-        }
+        //if (gTimer <= 0.0f)
+        //{
+        //    totalgold += goldperminute;
+        //    gTimer += 10f;
+        //    print("Fired");
+        //}
 
-        if (yTimer <= 0.0f)
-        {
-            cYear = cYear += 1f;
-            yTimer += 2.5f;
-        }
+        //if (yTimer <= 0.0f)
+        //{
+        //    cYear = cYear += 1f;
+        //    yTimer += 2.5f;
+        //}
 
         goldC.text = "Gold: " + totalgold.ToString();
         yearC.text = cYear.ToString();
@@ -83,5 +93,33 @@ public class MoneyManager : MonoBehaviour
         PlayerPrefs.SetFloat("pmxGold", goldpmx);
     }
 
+    IEnumerator yearTicker()
+    {
+        while (coRunning == true)
+        {
+            yTimer -= Time.fixedDeltaTime;
+            if (yTimer <= 0.0f)
+            {
+                cYear = cYear += 1f;
+                yTimer += 2.5f;
+            }
+            yield return null;
+        }
+    }
+
+    IEnumerator goldTicker()
+    {
+        while (coRunning == true)
+        {
+            gTimer -= Time.fixedDeltaTime;
+
+            if (gTimer <= 0.0f)
+            {
+                totalgold += goldperminute;
+                gTimer += 10f;
+            }
+            yield return null;
+        }
+    }
 }
 //All code written by Jay Underwood (deShalom).
