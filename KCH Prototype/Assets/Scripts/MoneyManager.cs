@@ -45,9 +45,9 @@ public class MoneyManager : MonoBehaviour
     public void Start()
     {
         //Removed for testing (Apply these only when player has swapped between scenes)
-        //totalgold = PlayerPrefs.GetFloat("tGold", 0);
-        //goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
-        //goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
+       // totalgold = PlayerPrefs.GetFloat("tGold", 0);
+       // goldperminute = PlayerPrefs.GetFloat("pmGold", 1);
+       // goldpmx = PlayerPrefs.GetFloat("pmxGold", 1);
 
         totalgold = 500;
         goldperminute = 10;
@@ -120,6 +120,18 @@ public class MoneyManager : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void pauseGame()
+    {
+        coRunning = false;
+    }
+
+    public void resumeGame()
+    {
+        coRunning = true;
+        StartCoroutine(yearTicker());
+        StartCoroutine(goldTicker());
     }
 }
 //All code written by Jay Underwood (deShalom).

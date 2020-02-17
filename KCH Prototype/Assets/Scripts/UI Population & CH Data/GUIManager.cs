@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl, conPnl, wcPnl;
-    public Button mon1Btn, tvBtn, wcBtn;
+    public GameObject monPnl, conPnl, wcPnl, mhPnl;
+    public Button mon1Btn, tvBtn, wcBtn, mhBtn;
     public bool monPnlActive;
 
     //Methods
@@ -51,12 +51,26 @@ public class GUIManager : MonoBehaviour
         openMenu(wcPnl);
     }
 
+    public void openMillHouse()
+    {
+        openMenu(mhPnl);
+    }
+
     public void wcButton()
     {
         if (MoneyManager.totalgold >= 500) 
         {
-            applyPurchase(500, 1);
-            Destroy(wcBtn);
+            applyPurchase(500, 10);
+            wcBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void mhButton()
+    {
+        if (MoneyManager.totalgold >= 650)
+        {
+            applyPurchase(650, 20);
+            mhBtn.gameObject.SetActive(false);
         }
     }
 
