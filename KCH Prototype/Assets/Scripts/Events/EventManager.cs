@@ -13,8 +13,8 @@ public class EventManager : MonoBehaviour
 
     //UI Variables
     public Text uiTitle, uiText, btnOneText;
-    public GameObject eventPop, btnOne;
-    public Button btn;
+    public GameObject eventPop, btnOne, info;
+    public Button btn, btni;
 
     //Methods
 
@@ -22,6 +22,7 @@ public class EventManager : MonoBehaviour
     {
         i = EventData.Load(path);
         btn = btnOne.GetComponent<Button>();
+        btni = info.GetComponent<Button>();
     }
     private void Update()
     {
@@ -60,6 +61,7 @@ public class EventManager : MonoBehaviour
         uiTitle.text = i.EventsList[0].eName.ToString();
         uiText.text = i.EventsList[0].eLetter.ToString();
         btn.onClick.AddListener(penedenHeathAttend);
+        btni.onClick.AddListener(penedenHeathInfo);
         
     }
     public void penedenHeathAttend()
@@ -79,6 +81,12 @@ public class EventManager : MonoBehaviour
     public void penedenHeathClose()
     {
        eventPop.SetActive(false);
+    }
+
+    public void penedenHeathInfo()
+    {
+        Application.OpenURL("de-shalom.co.uk");
+        print("Info working");
     }
 
 }
