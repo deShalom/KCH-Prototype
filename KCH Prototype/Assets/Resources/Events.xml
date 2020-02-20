@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EventsCollection>
+
+<Events>
+
+<Event eName="The trial of Peneden Heath.">
+<eLetter>M'lord you're summond to attend a trial! An assembly of Kentish nobility, to resolve a dispute between Odo Bishop of Bayeux and Lanfranc, Archbishop of Canterbury.</eLetter>
+<eLetterTwo>Archbishop Lanfranc has accused Bishop Odo, half brother to William the Conquerer and previously the Earl of Kent of defrauding the Church and crown, during his tenure as Earl!</eLetterTwo>
+<eLetterThree>Archbishop Lanfranc, and the men of Kent have found Odo Bishop of Bayeux guilty! The crown, and church will now be re-inbursed!</eLetterThree>
+</Event>
+
+</Events>
+
+</EventsCollection>
