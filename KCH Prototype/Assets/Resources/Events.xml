@@ -10,6 +10,12 @@
 <eLetterThree>Archbishop Lanfranc, and the men of Kent have found Odo Bishop of Bayeux guilty! The crown, and church will now be re-inbursed!</eLetterThree>
 </Event>
 
+  <Event eName="The peasants revolt!">
+    <eLetter>A peasant revolt has begun m'lord! Peasants from Kent and Essex are marching towards us, led by a man they call Wat Tyler! Tis' the Kings new Poll Tax m'lord, they opposing! What shall we do?</eLetter>
+    <eLetterTwo>The rebels attacked the gaol m'lord! They've freed all the prisoners, including the mad priest of Kent, John Ball! </eLetterTwo>
+    <eLetterThree>News m'lord! The rebel leader Wat Tyler has been killed. Defeated during negotiations with the King, at Smithfield. I've heard men say he was a man of the borough m'lord!</eLetterThree>
+  </Event>
+
 </Events>
 
 </EventsCollection>
