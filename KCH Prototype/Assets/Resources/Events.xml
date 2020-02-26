@@ -22,6 +22,12 @@
     <eLetterThree>Seven martyrs have been made today, m'lord. Seven protestants were burned at the stake. Including Thomas Hitton!</eLetterThree>
   </Event>
 
+  <Event eName="The Battle of Maidstone.">
+    <eLetter>The Earl Of Norwich has raised the men of Kent and Essex for the King. He's sent a force of two thousand to hold Maidstone for the royalists!</eLetter>
+    <eLetterTwo>Rumour has it that Sir Thomas Fairfax has been spotted m'lord! Leading four thousand parliment men our way!</eLetterTwo>
+    <eLetterThree>A great battle occured lord. Sir Thomas Fairfax and his men stormed the bridge at East Farleigh! The royalists folded, and parliment now holds Maidstone!</eLetterThree>
+  </Event>
+
 </Events>
 
 </EventsCollection>

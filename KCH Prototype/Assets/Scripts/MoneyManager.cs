@@ -11,7 +11,7 @@ public class MoneyManager : MonoBehaviour
     static private float g_goldPerMinute;
     static private float g_goldPMX;
     static private float gTimer = 10f;
-    static public float yTimer = 0.01f;
+    static public float yTimer = 0.5f;
     static public float cYear = 1060;
     static public int target = 30;
 
@@ -101,7 +101,7 @@ public class MoneyManager : MonoBehaviour
             if (yTimer <= 0.0f)
             {
                 cYear = cYear += 1f;
-                yTimer += 0.01f;
+                yTimer += 0.5f;
             }
             yield return null;
         }

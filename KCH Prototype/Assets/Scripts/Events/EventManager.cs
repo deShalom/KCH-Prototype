@@ -12,9 +12,9 @@ public class EventManager : MonoBehaviour
     public EventData i;
 
     //UI Variables
-    public Text uiTitle, uiText, btnOneText, btnTwoText, btnThreeText;
-    public GameObject eventPop, btnOne, btnTwo, btnThree, info;
-    public Button btn, btn2, btn3, btni;
+    public Text uiTitle, uiText, btnOneText, btnTwoText, btnThreeText, btnFourText;
+    public GameObject eventPop, btnOne, btnTwo, btnThree, btnFour, info;
+    public Button btn, btn2, btn3, btn4, btni;
 
     //Methods
 
@@ -24,6 +24,7 @@ public class EventManager : MonoBehaviour
         btn = btnOne.GetComponent<Button>();
         btn2 = btnTwo.GetComponent<Button>();
         btn3 = btnThree.GetComponent<Button>();
+        btn4 = btnFour.GetComponent<Button>();
         btni = info.GetComponent<Button>();
     }
     private void Update()
@@ -51,6 +52,12 @@ public class EventManager : MonoBehaviour
             eventHolder();
             switchTimer = 3;
         }
+        if (MoneyManager.cYear == 1648 && switchTimer == 3)
+        {
+            switchVar = 4;
+            eventHolder();
+            switchTimer = 4;
+        }
     }
 
     void eventHolder() 
@@ -66,6 +73,9 @@ public class EventManager : MonoBehaviour
                 break;
             case 3:
                 BurningsEvent();
+                break;
+            case 4:
+                BattleEvent();
                 break;
         }
 
@@ -101,7 +111,8 @@ public class EventManager : MonoBehaviour
        eventPop.SetActive(false);
        btnOne.SetActive(false);
        btnTwo.SetActive(false);
-        btnThree.SetActive(false);
+       btnThree.SetActive(false);
+       btnFour.SetActive(false);
     }
 
     public void penedenHeathInfo()
@@ -172,5 +183,37 @@ public class EventManager : MonoBehaviour
         Application.OpenURL("de-shalom.co.uk");
         print("Info working");
     }
+    //Battle of Maidstone methods
+    void BattleEvent()
+    {
+        eventPop.SetActive(true);
+        btnFour.SetActive(true);
+        btnFourText.text = "Surely this means war.";
+        uiTitle.text = i.EventsList[3].eName.ToString();
+        uiText.text = i.EventsList[3].eLetter.ToString();
+        btn4.onClick.AddListener(BattleParliment);
+        btni.onClick.AddListener(BattleInfo);
+    }
+
+    public void BattleParliment()
+    {
+        uiText.text = i.EventsList[3].eLetterTwo.ToString();
+        btnFourText.text = "This is the eve of battle!";
+        btn4.onClick.AddListener(BattlesOver);
+    }
+
+    public void BattlesOver()
+    {
+        uiText.text = i.EventsList[3].eLetterThree.ToString();
+        btnFourText.text = "A swift battle.";
+        btn4.onClick.AddListener(penedenHeathClose);
+    }
+
+    public void BattleInfo()
+    {
+        Application.OpenURL("de-shalom.co.uk");
+        print("Info working");
+    }
+
 }
 //All code written by Jay Underwood (deShalom)
