@@ -16,6 +16,12 @@
     <eLetterThree>News m'lord! The rebel leader Wat Tyler has been killed. Defeated during negotiations with the King, at Smithfield. I've heard men say he was a man of the borough m'lord!</eLetterThree>
   </Event>
 
+  <Event eName="The making of martyrs.">
+    <eLetter>A great unrest is growing between the Protestants, and the Catholics m'lord!</eLetter>
+    <eLetterTwo>A crowd has gathered m'lord, by the river. I think they're planning a burning.</eLetterTwo>
+    <eLetterThree>Seven martyrs have been made today, m'lord. Seven protestants were burned at the stake. Including Thomas Hitton!</eLetterThree>
+  </Event>
+
 </Events>
 
 </EventsCollection>

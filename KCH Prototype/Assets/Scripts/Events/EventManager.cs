@@ -12,9 +12,9 @@ public class EventManager : MonoBehaviour
     public EventData i;
 
     //UI Variables
-    public Text uiTitle, uiText, btnOneText, btnTwoText;
-    public GameObject eventPop, btnOne, btnTwo, info;
-    public Button btn, btn2, btni;
+    public Text uiTitle, uiText, btnOneText, btnTwoText, btnThreeText;
+    public GameObject eventPop, btnOne, btnTwo, btnThree, info;
+    public Button btn, btn2, btn3, btni;
 
     //Methods
 
@@ -23,6 +23,7 @@ public class EventManager : MonoBehaviour
         i = EventData.Load(path);
         btn = btnOne.GetComponent<Button>();
         btn2 = btnTwo.GetComponent<Button>();
+        btn3 = btnThree.GetComponent<Button>();
         btni = info.GetComponent<Button>();
     }
     private void Update()
@@ -44,6 +45,12 @@ public class EventManager : MonoBehaviour
             eventHolder();
             switchTimer = 2;
         }
+        if (MoneyManager.cYear == 1557 && switchTimer == 2)
+        {
+            switchVar = 3;
+            eventHolder();
+            switchTimer = 3;
+        }
     }
 
     void eventHolder() 
@@ -56,6 +63,9 @@ public class EventManager : MonoBehaviour
                 break;
             case 2:
                 peasantsRevoltEvent();
+                break;
+            case 3:
+                BurningsEvent();
                 break;
         }
 
@@ -90,7 +100,8 @@ public class EventManager : MonoBehaviour
     {
        eventPop.SetActive(false);
        btnOne.SetActive(false);
-        btnTwo.SetActive(false);
+       btnTwo.SetActive(false);
+        btnThree.SetActive(false);
     }
 
     public void penedenHeathInfo()
@@ -126,6 +137,37 @@ public class EventManager : MonoBehaviour
     }
 
     public void peasantsRevoltInfo()
+    {
+        Application.OpenURL("de-shalom.co.uk");
+        print("Info working");
+    }
+    //Refermation burning methods
+    void BurningsEvent()
+    {
+        eventPop.SetActive(true);
+        btnThree.SetActive(true);
+        btnThreeText.text = "Ill times.";
+        uiTitle.text = i.EventsList[2].eName.ToString();
+        uiText.text = i.EventsList[2].eLetter.ToString();
+        btn3.onClick.AddListener(BurningsCrowds);
+        btni.onClick.AddListener(BurningsInfo);
+    }
+
+    public void BurningsCrowds()
+    {
+        uiText.text = i.EventsList[2].eLetterTwo.ToString();
+        btnThreeText.text = "How is this justice?";
+        btn3.onClick.AddListener(BurningsOver);
+    }
+
+    public void BurningsOver()
+    {
+        uiText.text = i.EventsList[2].eLetterThree.ToString();
+        btnThreeText.text = "Long may the martyrs be remembered.";
+        btn3.onClick.AddListener(penedenHeathClose);
+    }
+
+    public void BurningsInfo()
     {
         Application.OpenURL("de-shalom.co.uk");
         print("Info working");
