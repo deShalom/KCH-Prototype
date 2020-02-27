@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl, conPnl, wcPnl, mhPnl;
-    public Button mon1Btn, tvBtn, wcBtn, mhBtn;
+    public GameObject monPnl, conPnl, wcPnl, mhPnl, urPnl;
+    public Button mon1Btn, tvBtn, wcBtn, mhBtn, urBtn;
     public bool monPnlActive;
 
     //Methods
@@ -46,19 +46,28 @@ public class GUIManager : MonoBehaviour
         openMenu(conPnl);
     }
 
+    //Open property panels
     public void openWhiteCopse()
     {
+        propPanelCheck();
         openMenu(wcPnl);
     }
 
     public void openMillHouse()
     {
+        propPanelCheck();
         openMenu(mhPnl);
+    }
+
+    public void openURQ()
+    {
+        propPanelCheck();
+        openMenu(urPnl);
     }
 
     public void wcButton()
     {
-        if (MoneyManager.totalgold >= 500) 
+        if (MoneyManager.totalgold >= 500)
         {
             applyPurchase(500, 10);
             wcBtn.gameObject.SetActive(false);
@@ -74,11 +83,34 @@ public class GUIManager : MonoBehaviour
         }
     }
 
+    public void urButton()
+    {
+        if (MoneyManager.totalgold >= 100)
+        {
+            applyPurchase(100, 10);
+            urBtn.gameObject.SetActive(false);
+        }
+    }
+    public void propPanelCheck()
+    {
+        GameObject go = null;
+        if (GameObject.FindWithTag("PropPanel") != null)
+        {
+            go = GameObject.FindWithTag("PropPanel");
+        }
+        if (go != null)
+        {
+            go.SetActive(false);
+        }
+    }
+    //Misc
     void applyPurchase(float cost, float effect) 
     {
         MoneyManager.totalgold -= cost;
         MoneyManager.goldperminute += effect;
     }
+
+
 
 }
 //All code written by Jay Underwood (deShalom).
