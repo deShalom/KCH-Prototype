@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl, conPnl, wcPnl, mhPnl, urPnl;
-    public Button mon1Btn, tvBtn, wcBtn, mhBtn, urBtn;
+    public GameObject monPnl, conPnl, wcPnl, mhPnl, urPnl, stPnl;
+    public Button mon1Btn, tvBtn, wcBtn, mhBtn, urBtn, stBtn;
     public bool monPnlActive;
 
     //Methods
@@ -65,6 +65,12 @@ public class GUIManager : MonoBehaviour
         openMenu(urPnl);
     }
 
+    public void openSPM()
+    {
+        propPanelCheck();
+        openMenu(stPnl);
+    }
+
     public void wcButton()
     {
         if (MoneyManager.totalgold >= 500)
@@ -89,6 +95,15 @@ public class GUIManager : MonoBehaviour
         {
             applyPurchase(100, 10);
             urBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void stButton()
+    {
+        if (MoneyManager.totalgold >= 300)
+        {
+            applyPurchase(300, 30);
+            stBtn.gameObject.SetActive(false);
         }
     }
     public void propPanelCheck()
