@@ -8,8 +8,8 @@ using System.Text;
 
 public class CHMonumentClass
 {
-    [XmlAttribute("BTName")]
-    public string BTNname;
+    [XmlAttribute("MN")]
+    public string MNname;
 
     [XmlElement("CHName")]
     public string CHMonName;
@@ -19,10 +19,6 @@ public class CHMonumentClass
     public string CHMonConDat;
     [XmlElement("CHFigures")]
     public string CHMonFigures;
-    [XmlElement("CHPrice")]
-    public string CHMonPrice;
-    [XmlElement("CHGamepE")]
-    public string CHMonEffect;
 }
 
 [XmlRoot("CHMonumentCollection")]

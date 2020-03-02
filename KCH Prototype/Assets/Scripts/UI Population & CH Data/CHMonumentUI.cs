@@ -10,28 +10,24 @@ public class CHMonumentUI : MonoBehaviour
 {
     //Variables
     public const string path = "CHMonData";
+    public CHMonumentManager i;
 
     //UI Variables
-    public Text MonTitle, MonDescription, MonPrice, MonEffects;
+    public Text MonTitle, MonDescription;
 
     //Methods
-    public void Start()
+    private void Awake()
     {
-      
+     CHMonumentManager i = CHMonumentManager.Load(path);
     }
-
-    public void StoneHengeClicked()
+    public void BAClicked()
     {
-        CHMonumentManager i = CHMonumentManager.Load(path);
-
         foreach (CHMonumentClass CHMonument in i.CHMonumentsList)
         {
-            if (CHMonument.BTNname == "CH Monument SH")
+            if (CHMonument.MNname == "BA")
             {
                 MonTitle.text = CHMonument.CHMonName;
                 MonDescription.text = CHMonument.CHMonDescription;
-                MonPrice.text = CHMonument.CHMonPrice;
-                MonEffects.text = CHMonument.CHMonEffect;
             }
         }
     }

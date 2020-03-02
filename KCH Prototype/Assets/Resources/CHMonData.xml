@@ -4,13 +4,11 @@
 
 <CHMonuments>
 
-<CHMonument BTName="CH Monument SH">
+<CHMonument MN="BA">
 <CHName> Stone Henge</CHName>
 <CHDescription> Example text here, about Stone Henge! </CHDescription>
 <CHConstructionDat> 300bc</CHConstructionDat>
 <CHFigures> The Britons!</CHFigures>
-<CHPrice> £150 </CHPrice>
-<CHGamepE> Example effect here! </CHGamepE>
 </CHMonument>
 
 </CHMonuments>

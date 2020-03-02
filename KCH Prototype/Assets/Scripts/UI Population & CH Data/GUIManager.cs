@@ -26,7 +26,7 @@ public class GUIManager : MonoBehaviour
     }
 
     //Integrate to new format (Please)
-    public void OpenmonPNL()
+    /*public void OpenmonPNL()
     {
         if (monPnlActive == false)
         {
@@ -45,6 +45,7 @@ public class GUIManager : MonoBehaviour
     {
         openMenu(conPnl);
     }
+    */
 
     //Open property panels
     public void openWhiteCopse()
