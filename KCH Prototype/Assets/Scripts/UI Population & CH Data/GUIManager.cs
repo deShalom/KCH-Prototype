@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour
 {
     //Variables
-    public GameObject monPnl, conPnl, wcPnl, mhPnl, urPnl, stPnl, baPnl;
-    public Button mon1Btn, tvBtn, wcBtn, mhBtn, urBtn, stBtn, baBtn;
+    public GameObject monPnl, conPnl, wcPnl, mhPnl, urPnl, stPnl, baPnl, ccPnl, lcPnl, apPnl, fbPnl;
+    public Button mon1Btn, tvBtn, wcBtn, mhBtn, urBtn, stBtn, baBtn, ccBtn, lcBtn, apBtn, fbBtn;
     public bool monPnlActive;
 
     //Methods
@@ -24,28 +24,6 @@ public class GUIManager : MonoBehaviour
             menu.SetActive(true);
         }
     }
-
-    //Integrate to new format (Please)
-    /*public void OpenmonPNL()
-    {
-        if (monPnlActive == false)
-        {
-            monPnl.SetActive(true);
-            monPnlActive = true;
-        }
-        else if (monPnlActive == true)
-        {
-            monPnl.SetActive(false);
-            monPnlActive = false;
-        }
-    }
-
-    //Open Construction Panel
-    public void OpenconPNL()
-    {
-        openMenu(conPnl);
-    }
-    */
 
     //Open property panels
     public void openWhiteCopse()
@@ -78,12 +56,72 @@ public class GUIManager : MonoBehaviour
         openMenu(baPnl);
     }
 
+    public void openCC()
+    {
+        propPanelCheck();
+        openMenu(ccPnl);
+    }
+
+    public void openLC()
+    {
+        propPanelCheck();
+        openMenu(lcPnl);
+    }
+
+    public void openAP()
+    {
+        propPanelCheck();
+        openMenu(apPnl);
+    }
+
+    public void openFB()
+    {
+        propPanelCheck();
+        openMenu(fbPnl);
+    }
+
+    public void fbButton()
+    {
+        if (MoneyManager.totalgold >= 400)
+        {
+            applyPurchase(400, 15);
+            baBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void apButton()
+    {
+        if (MoneyManager.totalgold >= 600)
+        {
+            applyPurchase(600, 60);
+            baBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void lcButton()
+    {
+        if (MoneyManager.totalgold >= 2000)
+        {
+            applyPurchase(2000, 200);
+            baBtn.gameObject.SetActive(false);
+        }
+    }
+
     public void baButton()
     {
         if (MoneyManager.totalgold >= 1000)
         {
             applyPurchase(1000, 50);
-            wcBtn.gameObject.SetActive(false);
+            baBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void ccButton()
+    {
+        if (MoneyManager.totalgold >= 300)
+        {
+            applyPurchase(300, 15);
+            ccBtn.gameObject.SetActive(false);
         }
     }
 
@@ -152,8 +190,6 @@ public class GUIManager : MonoBehaviour
         MoneyManager.totalgold -= cost;
         MoneyManager.goldperminute += effect;
     }
-
-
 
 }
 //All code written by Jay Underwood (deShalom).

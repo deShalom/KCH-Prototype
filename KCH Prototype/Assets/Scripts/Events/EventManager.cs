@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EventManager : MonoBehaviour
 {
@@ -12,12 +13,12 @@ public class EventManager : MonoBehaviour
     public EventData i;
 
     //UI Variables
-    public Text uiTitle, uiText, btnOneText, btnTwoText, btnThreeText, btnFourText;
+    public Text btnOneText, btnTwoText, btnThreeText, btnFourText;
+    public TextMeshProUGUI uiTitle, uiText;
     public GameObject eventPop, btnOne, btnTwo, btnThree, btnFour, info;
     public Button btn, btn2, btn3, btn4, btni;
 
     //Methods
-
     void Start()
     {
         i = EventData.Load(path);
@@ -31,7 +32,6 @@ public class EventManager : MonoBehaviour
     {
         yearChecker();
     }
-
     void yearChecker()
     {
         if (MoneyManager.cYear == 1066 && switchTimer == 0)
@@ -59,7 +59,6 @@ public class EventManager : MonoBehaviour
             switchTimer = 4;
         }
     }
-
     void eventHolder() 
     {
         //Switch
@@ -98,14 +97,12 @@ public class EventManager : MonoBehaviour
         btnOneText.text = "Justice must be ensured!";
         btn.onClick.AddListener(penedenHeathJury);
     }
-
     public void penedenHeathJury()
     {
         uiText.text = i.EventsList[0].eLetterThree.ToString();
         btnOneText.text = "Return home!";
         btn.onClick.AddListener(penedenHeathClose);
     }
-
     public void penedenHeathClose()
     {
        eventPop.SetActive(false);
@@ -114,7 +111,6 @@ public class EventManager : MonoBehaviour
        btnThree.SetActive(false);
        btnFour.SetActive(false);
     }
-
     public void penedenHeathInfo()
     {
         Application.OpenURL("de-shalom.co.uk");
@@ -132,21 +128,18 @@ public class EventManager : MonoBehaviour
         btni.onClick.AddListener(penedenHeathInfo);
 
     }
-
     public void peasantsRevoltAttack()
     {
         uiText.text = i.EventsList[1].eLetterTwo.ToString();
         btnTwoText.text = "Damn the rebel scum!";
         btn2.onClick.AddListener(peasantsRevoltOver);
     }
-
     public void peasantsRevoltOver()
     {
         uiText.text = i.EventsList[1].eLetterThree.ToString();
         btnTwoText.text = "Return home!";
         btn2.onClick.AddListener(penedenHeathClose);
     }
-
     public void peasantsRevoltInfo()
     {
         Application.OpenURL("de-shalom.co.uk");
@@ -163,21 +156,18 @@ public class EventManager : MonoBehaviour
         btn3.onClick.AddListener(BurningsCrowds);
         btni.onClick.AddListener(BurningsInfo);
     }
-
     public void BurningsCrowds()
     {
         uiText.text = i.EventsList[2].eLetterTwo.ToString();
         btnThreeText.text = "How is this justice?";
         btn3.onClick.AddListener(BurningsOver);
     }
-
     public void BurningsOver()
     {
         uiText.text = i.EventsList[2].eLetterThree.ToString();
         btnThreeText.text = "Long may the martyrs be remembered.";
         btn3.onClick.AddListener(penedenHeathClose);
     }
-
     public void BurningsInfo()
     {
         Application.OpenURL("de-shalom.co.uk");
@@ -194,26 +184,22 @@ public class EventManager : MonoBehaviour
         btn4.onClick.AddListener(BattleParliment);
         btni.onClick.AddListener(BattleInfo);
     }
-
     public void BattleParliment()
     {
         uiText.text = i.EventsList[3].eLetterTwo.ToString();
         btnFourText.text = "This is the eve of battle!";
         btn4.onClick.AddListener(BattlesOver);
     }
-
     public void BattlesOver()
     {
         uiText.text = i.EventsList[3].eLetterThree.ToString();
         btnFourText.text = "A swift battle.";
         btn4.onClick.AddListener(penedenHeathClose);
     }
-
     public void BattleInfo()
     {
         Application.OpenURL("de-shalom.co.uk");
         print("Info working");
     }
-
 }
 //All code written by Jay Underwood (deShalom)

@@ -18,10 +18,6 @@ public class CHMonumentUI : MonoBehaviour
     public GameObject iPanel;
 
     //Methods
-    private void Awake()
-    {
-     
-    }
     public void BAClicked()
     {
         iPanel.SetActive(true);
@@ -37,6 +33,68 @@ public class CHMonumentUI : MonoBehaviour
             }
         }
     }
+    public void KCClicked()
+    {
+        iPanel.SetActive(true);
+        CHMonumentManager i = CHMonumentManager.Load(path);
+        foreach (CHMonumentClass CHMonument in i.CHMonumentsList)
+        {
+            if (CHMonument.MNname == "KC")
+            {
+                MonTitle.text = CHMonument.CHMonName;
+                MonDescription.text = CHMonument.CHMonDescription;
+                MonDate.text = CHMonument.CHMonConDat;
+                MonFounder.text = CHMonument.CHMonFigures;
+            }
+        }
+    }
+    public void APClicked()
+    {
+        iPanel.SetActive(true);
+        CHMonumentManager i = CHMonumentManager.Load(path);
+        foreach (CHMonumentClass CHMonument in i.CHMonumentsList)
+        {
+            if (CHMonument.MNname == "AP")
+            {
+                MonTitle.text = CHMonument.CHMonName;
+                MonDescription.text = CHMonument.CHMonDescription;
+                MonDate.text = CHMonument.CHMonConDat;
+                MonFounder.text = CHMonument.CHMonFigures;
+            }
+        }
+    }
+    public void LCClicked()
+    {
+        iPanel.SetActive(true);
+        CHMonumentManager i = CHMonumentManager.Load(path);
+        foreach (CHMonumentClass CHMonument in i.CHMonumentsList)
+        {
+            if (CHMonument.MNname == "LC")
+            {
+                MonTitle.text = CHMonument.CHMonName;
+                MonDescription.text = CHMonument.CHMonDescription;
+                MonDate.text = CHMonument.CHMonConDat;
+                MonFounder.text = CHMonument.CHMonFigures;
+            }
+        }
+    }
+
+    public void FBClicked()
+    {
+        iPanel.SetActive(true);
+        CHMonumentManager i = CHMonumentManager.Load(path);
+        foreach (CHMonumentClass CHMonument in i.CHMonumentsList)
+        {
+            if (CHMonument.MNname == "FB")
+            {
+                MonTitle.text = CHMonument.CHMonName;
+                MonDescription.text = CHMonument.CHMonDescription;
+                MonDate.text = CHMonument.CHMonConDat;
+                MonFounder.text = CHMonument.CHMonFigures;
+            }
+        }
+    }
+
 }
 //All code written by Jay Underwood (deShalom).
 

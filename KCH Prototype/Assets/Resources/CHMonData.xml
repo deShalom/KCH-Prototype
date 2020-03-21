@@ -5,12 +5,40 @@
 <CHMonuments>
 
 <CHMonument MN="BA">
-<CHName> Stone Henge</CHName>
-<CHDescription> Example text here, about Stone Henge! </CHDescription>
-<CHConstructionDat> 300bc</CHConstructionDat>
-<CHFigures> The Britons!</CHFigures>
+<CHName>Boxley Abbey</CHName>
+<CHDescription>Boxley Abbey, was a Cistercian monastery built on the North Downs in Boxley, constructed by the leader of King Stephen's Flemish mercenaries; William of Ypres. Colonised by monks from Clairvaux Abbey, in France. Dissolved in  on January 29, 1537.</CHDescription>
+<CHConstructionDat>Construction begun in 1146.</CHConstructionDat>
+<CHFigures>Constructed by William of Ypres.</CHFigures>
 </CHMonument>
 
+  <CHMonument MN="KC">
+    <CHName>Kits Coty House</CHName>
+    <CHDescription>Kits Coty House, a Neolithic period chambered long barrow. The barrow, which is one of nine within the Medway valley was constructed as a communal burial site. Which now exists in a near ruined state.</CHDescription>
+    <CHConstructionDat>Construction during the early Neolithic period, around 4000 BCE.</CHConstructionDat>
+    <CHFigures>Constructed by pastoralist Britons.</CHFigures>
+  </CHMonument>
+
+  <CHMonument MN="AP">
+    <CHName>Archbishops Palace</CHName>
+    <CHDescription>Archbishops Palace served as a resting place for the Archbishop of Canterbury, on journeys from Canterbury to London. Archbishop Courteney expanded the Palace with the additions of the Church of All Saints, and a College. However the buildings were gifted to Henry VIII by Archbishop Cranmer in exchange for new property.</CHDescription>
+    <CHConstructionDat>Initial construction begun in 1348.</CHConstructionDat>
+    <CHFigures>Constructed by Archbishop Ufford.</CHFigures>
+  </CHMonument>
+  
+  <CHMonument MN="LC">
+    <CHName>Leeds Castle</CHName>
+    <CHDescription>Having existed in a form since 1119, beginning life as a Norman military post. Leeds Castle was built upon islands created by the River Len, constructed by Robert de Crevecoeur for a militant purpose. However by the 13th century, it came to the hands of King Edward I; for whoom it became a favourite residence. Leeds Castle was also the primary residence for Catherine of Aragon; wife of  Henry VIII.</CHDescription>
+    <CHConstructionDat>Originally constructed in, 1119. However has undergone numerous reconstructions.</CHConstructionDat>
+    <CHFigures>Constructed by Robert de Crevecoeur.</CHFigures>
+  </CHMonument>
+  
+  <CHMonument MN="FB">
+    <CHName>East Farleigh Bridge</CHName>
+    <CHDescription>A medieval stone bridge, crossing the River Medway. This bridge was the crossing point of Sir Thomas Fairfax's 4000 Parlimentarian soliders, during the second English civil war. The bridge was probably built during the 14th century, using Kentish Ragstone, and Ashlar.</CHDescription>
+    <CHConstructionDat>Likely the 14th century.</CHConstructionDat>
+    <CHFigures>Unknown.</CHFigures>
+  </CHMonument>
+  
 </CHMonuments>
 
 </CHMonumentCollection>
