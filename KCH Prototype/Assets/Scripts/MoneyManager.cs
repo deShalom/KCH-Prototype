@@ -83,10 +83,10 @@ public class MoneyManager : MonoBehaviour
         //    yTimer += 2.5f;
         //}
 
-        goldC.text = "Gold: " + totalgold.ToString();
+        goldC.text = totalgold.ToString();
         yearC.text = cYear.ToString();
         goldPM.text = "GPM:" + goldperminute.ToString();
-        goldPMX.text = "GPM*:" + goldpmx.ToString();
+        //goldPMX.text = "GPM*:" + goldpmx.ToString();
 
         PlayerPrefs.SetFloat("tGold", totalgold);
         PlayerPrefs.SetFloat("pmGold", goldperminute);
